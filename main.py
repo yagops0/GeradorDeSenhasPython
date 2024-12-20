@@ -6,22 +6,29 @@ import string
 # print(r.choice(string.ascii_letters))
 
 def gerar_senhas(tamanho : int):
-    aux = ""
     senha = []
+    # i=0
     for i in range(tamanho):
-        aux = r.choice(string.ascii_letters)
-        senha.append(aux)
-        aux = r.choice(string.digits)
-        senha.append(aux)
-        aux = r.choice(string.punctuation)
-        senha.append(aux)
+        senha.append(r.choice(string.ascii_letters))
+        senha.append(r.choice(string.digits))
+        senha.append(r.choice(string.punctuation))
     return senha
+
+def escolher_caracteres(lista : list, tamanho):
+    senhaDefinitiva = []
+    for i in range(tamanho):
+        senhaDefinitiva.append(r.choice(lista))
+    return senhaDefinitiva
+
 
 
 
 tamanho = int(input("Digite o tamanho da senha que deseja: "))
 senha = gerar_senhas(tamanho)
-
+senhaDefinitiva = escolher_caracteres(senha, tamanho)
 print(senha)
+print(len(senha))
+print(senhaDefinitiva)
+print(len(senhaDefinitiva))
 
 
